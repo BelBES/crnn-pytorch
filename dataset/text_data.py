@@ -29,8 +29,8 @@ class TextDataset(Dataset):
         name = self.config[self.mode][idx]["name"]
         text = self.config[self.mode][idx]["text"]
 
-        # img = cv2.imread(os.path.join(self.data_path, "data", name))
-        img = cv2.imread(os.path.join(self.data_path, name))
+        img = cv2.imread(os.path.join(self.data_path, "data", name))
+        #img = cv2.imread(os.path.join(self.data_path, name))
         seq = self.text_to_seq(text)
         sample = {"img": img, "seq": seq, "seq_len": len(seq), "aug": self.mode == "train"}
         if self.transform:
